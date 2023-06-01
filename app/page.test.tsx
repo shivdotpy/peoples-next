@@ -9,9 +9,9 @@ describe('Home Page', () => {
     const text = screen.getByText('Peoples');
 
     // Test if exists
-    expect(text).toBeInTheDocument()
+    expect(text).toBeInTheDocument();
 
     // Check Snapshot
-    expect(container).toMatchSnapshot()
+    expect(container).toMatchSnapshot();
   });
 });
