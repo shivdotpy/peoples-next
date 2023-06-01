@@ -1,9 +1,8 @@
 #!/bin/sh
 
 npm run format
-
-if [[ $(npx prettier --list-different) ]]; then
-  echo "There are Prettier warnings. Please fix them before committing."
+if [ $? -ne 0 ]; then
+  echo "Prettier warnings found. Please fix them before committing."
   exit 1
 fi
 
