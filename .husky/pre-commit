@@ -2,4 +2,9 @@
 
 npm run format
 
+if [[ $(npx prettier --list-different) ]]; then
+  echo "There are Prettier warnings. Please fix them before committing."
+  exit 1
+fi
+
 npm run test:ci
