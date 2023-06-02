@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Page Renders home page and show text Peoples 1`] = `
+<div>
+  <main>
+    Peoples
+  </main>
+</div>
+`;
