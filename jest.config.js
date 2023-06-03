@@ -9,7 +9,12 @@ const customJestConfig = {
   moduleDirectories: ['node_modules', '<rootDir>/'],
   testEnvironment: 'jest-environment-jsdom',
   collectCoverage: true,
-  collectCoverageFrom: ['app/**/*.ts', 'app/**/*.tsx']
+  collectCoverageFrom: [
+    'app/**/*.ts',
+    'app/**/*.tsx',
+    'components/**/*.ts',
+    'components/**/*.tsx'
+  ]
 };
 
 module.exports = createJestConfig(customJestConfig);
