@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import Home from './page';
 import RootLayout from './layout';
 
-describe('Home Page', () => {
+describe('Home Page - Landing Page', () => {
   test('renders the heading', () => {
     render(<Home />);
     const heading = screen.getByText('Welcome to peoples page');
