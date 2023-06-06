@@ -1,13 +1,7 @@
-import Navbar from '@/components/navbar/Navbar';
 import './globals.css';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
-
-// export const metadata: Metadata = {
-//  title: 'Peoples',
-//  description: 'Peoples app created with NextJs'
-// };
 
 export default function RootLayout({
   children

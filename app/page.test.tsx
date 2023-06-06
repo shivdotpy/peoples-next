@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Home from './page';
 import RootLayout from './layout';
+import { renderToString } from 'react-dom/server';
 
 describe('Home Page - Landing Page', () => {
   test('renders the heading', () => {
@@ -30,5 +31,14 @@ describe('Home Page - Landing Page', () => {
       '© 2023 Peoples App. No rights reserved. 😂'
     );
     expect(footer).toBeInTheDocument();
+  });
+});
+
+describe('Home page - Layout', () => {
+  test('renders the html tag with lang attribute', () => {
+    const htmlString = renderToString(
+      <RootLayout children={<div>Test Content</div>} />
+    );
+    expect(htmlString).toContain('<html lang="en">');
   });
 });
