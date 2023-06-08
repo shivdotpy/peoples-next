@@ -1,6 +1,6 @@
 'use client';
 
-import PeopleCard from '@/components/PeopleCard/PeopleCard';
+import PeopleCard from '@/components/peopleCard/PeopleCard';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
