@@ -3,15 +3,30 @@ import Navbar from './Navbar';
 
 describe('Navbar', () => {
   it('Should render navbar', () => {
-    const { container } = render(<Navbar />);
+    render(<Navbar />);
+  });
 
-    const logoText = screen.getByText('Peoples App');
+  test('renders the Navbar logo with the correct text', () => {
+    render(<Navbar />);
+    const logoText = screen.getByText('Peoples');
     expect(logoText).toBeInTheDocument();
+  });
 
-    const aboutLink = screen.getByText('About');
-    expect(aboutLink).toBeInTheDocument();
+  test('renders the Navbar with the correct number of navigation links', () => {
+    render(<Navbar />);
+    const navigationLinks = screen.getAllByRole('link');
+    expect(navigationLinks).toHaveLength(3);
+  });
 
-    const contactLink = screen.getByText('Contact');
-    expect(contactLink).toBeInTheDocument();
+  test('renders the Navbar navigation links with correct href attributes', () => {
+    render(<Navbar />);
+    const aboutLink = screen.getByRole('link', { name: 'About' });
+    expect(aboutLink).toHaveAttribute('href', '/about');
+
+    const contactLink = screen.getByRole('link', { name: 'Contact' });
+    expect(contactLink).toHaveAttribute('href', '/contact');
+
+    const settingsLink = screen.getByRole('link', { name: 'Settings' });
+    expect(settingsLink).toHaveAttribute('href', '/settings');
   });
 });

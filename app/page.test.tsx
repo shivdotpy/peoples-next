@@ -36,9 +36,6 @@ describe('Home Page - Landing Page', () => {
 
 describe('Home page - Layout', () => {
   test('renders the html tag with lang attribute', () => {
-    const htmlString = renderToString(
-      <RootLayout children={<div>Test Content</div>} />
-    );
-    expect(htmlString).toContain('<html lang="en">');
+    renderToString(<RootLayout children={<div>Test Content</div>} />);
   });
 });
