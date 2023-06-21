@@ -1,25 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import PeopleCard from './PeopleCard';
 
-const peopleJson = {
-  id: 1,
-  email: 'michael.lawson@reqres.in',
-  first_name: 'Michael',
-  last_name: 'Lawson',
-  avatar: 'https://reqres.in/img/faces/1-image.jpg'
-};
-
 describe('People Card', () => {
-    // test('Render people card', () => {
-    //     render(<PeopleCard first_name='shiv' last_name='sharma' email='shiv@gmail.com' avatar='https://i.pravatar.cc/300' />);
-    // });
+  it('should render the component with the correct props', () => {
+    const { name, email, avatar } = {
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      avatar: 'https://avatars.example.com/johndoe.jpg'
+    };
+    render(<PeopleCard name={name} email={email} avatar={avatar} />);
 
-    // test('displays the correct user information in the PeopleCard', () => {
-    //     render(<PeopleCard first_name='shiv' last_name='sharma' email='shiv@gmail.com' avatar='https://i.pravatar.cc/300' />);
-    //     const firstName = screen.getByText('Michael Lawson');
-    //     expect(firstName).toBeInTheDocument();
+    const nameElement = screen.getByText(name);
+    expect(nameElement).toBeInTheDocument();
 
-    //     const email = screen.getByText('michael.lawson@reqres.in');
-    //     expect(email).toBeInTheDocument();
-    // });
+    const emailElement = screen.getByText(email);
+    expect(emailElement).toBeInTheDocument();
+  });
 });
