@@ -1,36 +1,31 @@
 'use client';
 
+import { getPoeplesApi } from '@/api/peoples.api';
 import PeopleCard from '@/components/peopleCard/PeopleCard';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
-export interface People {
-  id: number;
-  first_name: string;
-  last_name: string;
-  email: string;
-  avatar: string;
-}
 
 const Peoples = () => {
   const [peoples, setPeoples] = useState([]);
 
-  const getPeoplesApi = () => {
-    axios
-      .get('https://reqres.in/api/users?page=1&per_page=10')
-      .then((response) => {
-        setPeoples(response.data.data);
-      });
+  const getPoeples = () => {
+    getPoeplesApi()
+      .then((data) => setPeoples(data))
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
-    getPeoplesApi();
+    getPoeples();
   }, []);
 
   return (
-    <div className="p-8 flex flex-wrap gap-5 justify-center">
-      {peoples.map((people: People) => (
-        <PeopleCard key={people.id} people={people} />
+    <div className="p-8 flex gap-4 flex-wrap">
+      {peoples.map(({ id, name, email }) => (
+        <PeopleCard
+          key={id}
+          name={name}
+          avatar={`https://i.pravatar.cc/150?img=${id}`}
+          email={email}
+        />
       ))}
     </div>
   );

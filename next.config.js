@@ -7,6 +7,12 @@ const nextConfig = {
         hostname: 'reqres.in',
         port: '',
         pathname: '/img/faces/**'
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+        port: '',
+        pathname: '/**'
       }
     ]
   }
